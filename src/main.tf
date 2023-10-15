@@ -19,8 +19,8 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-      version = "=3.0.1"
+      source = "hashicorp/azurerm" # Specifying Azure Resource Manager
+      version = "=3.0.1" # Latest Version as of 15/10/23
     }
   }
 }
@@ -28,4 +28,10 @@ terraform {
 # Configures Providers
 provider "azurevm" {
   features {}
+}
+
+# Resource Group Creation
+resource "azurerm_resource_group" "XHST-Devel-RG" {
+  name     = "XHT-Devel-Resources"
+  location = "UK South"
 }
